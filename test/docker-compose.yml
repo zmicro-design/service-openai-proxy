@@ -1,0 +1,13 @@
+services:
+  openai-proxy:
+    restart: always
+    image: whatwewant/openai-proxy:${SERVICE_OPENAI_PROXY_IMAGE_VERSION}
+    environment:
+      PORT: $SERVICE_OPENAI_PROXY_PORT
+      USERNAME: ${SERVICE_OPENAI_PROXY_USERNAME}
+      PASSWORD: ${SERVICE_OPENAI_PROXY_PASSWORD}
+      
+networks:
+  default:
+    external: true
+    name: compose-ingress
